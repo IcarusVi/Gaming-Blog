@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "writers",
+  "info": {
+    "name": "Writers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "FirstName": {
+      "type": "string",
+      "required": true
+    },
+    "LastName": {
+      "type": "string",
+      "required": true
+    },
+    "ProfilePic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "blogPosts": {
+      "via": "writer",
+      "collection": "blog-posts"
+    }
+  }
+}

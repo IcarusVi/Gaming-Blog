@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_posts",
+  "info": {
+    "name": "Blog Posts",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "linkRef": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "Thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "altImgTitle": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "headline": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Content": {
+      "type": "richtext",
+      "required": true
+    },
+    "tag": {
+      "via": "posts",
+      "collection": "tags"
+    },
+    "writer": {
+      "model": "writers",
+      "via": "blogPosts"
+    },
+    "link4thumbnail": {
+      "type": "string"
+    }
+  }
+}
