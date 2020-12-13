@@ -45,7 +45,20 @@ a {
 
 }
 
+.fixImg{
+  width: 200px;
+  height:200px;
+}
 
+.description{
+  width:50%;
+}
+
+.placeHolder{
+  max-width:200px;
+  height:200px;
+  background-color: red;
+}
 
 .article{
   text-align: center;

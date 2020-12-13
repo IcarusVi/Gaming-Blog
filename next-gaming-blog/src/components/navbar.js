@@ -1,7 +1,8 @@
 import { Grid, TextField } from '@material-ui/core';
+import { useState } from 'react'
 import MenuIcon from '@material-ui/icons/Menu';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import Link from "next/link"
+import Link from "next/link";
 import AppBar from '@material-ui/core/AppBar';
 import { Toolbar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -42,36 +43,59 @@ const useStyles = makeStyles((theme) => ({
 
         }
     },
-    searchBar:{
-        display:'flex',
-        flexDirection:'row',
-        
+    searchBar: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
+
+    },
+    searchField: {
+        backgroundColor: 'orange',
+
+
     }
 
 
 }))
 
 const NavBar = () => {
+    const [hide, setHide] = useState(true)
+    const toggleSearch = (e) => {
+        if (hide) {
+            setHide(false)
+        }
+        else {
+            setHide(true)
+        }
+    }
+
     const classes = useStyles()
     return (
         <Grid item xs={12}>
             <AppBar className={classes.root} position="static">
                 <Toolbar className={classes.toolBar}>
                     <div className={classes.actionBar}>
-                        <div className="link-block">Authors</div>
+                        <Link href="/authors">
+                            <div className="link-block">Authors</div>
+                        </Link>
+                        
+                        
                         <Link href="/">
                             <div className='logo-placeholder'>Logo Placeholder</div>
                         </Link>
-                        <div className="link-block">Gaming</div>
+                        
+                        <Link href="/gaming">
+                            <div className="link-block">Gaming</div>
+                        </Link>
                     </div>
                     <MenuIcon className={classes.menu} />
 
-                    <div className='search-bar'>
-                        <SearchIcon />
-                        <TextField style={{backgroundColor:'orange'}} label="Standard"/>
+                    <div className={classes.searchBar}>
+                        <SearchIcon onClick={toggleSearch} fontSize="large" />
                     </div>
 
                 </Toolbar>
+                <TextField fullWidth={true} style={{ display: hide ? 'none' : 'block' }} className={classes.searchField} label="Search" />
             </AppBar>
         </Grid>
 

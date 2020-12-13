@@ -1,6 +1,5 @@
 import { CardContent, CardMedia } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import { makeStyles } from '@material-ui/core/styles'
 import "fontsource-roboto"
 import Link from 'next/link'
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: 'row',
         maxHeight: 200,
-        width: "fit-content",
+        //width: "fit-content",
         marginTop:10,
 
         [theme.breakpoints.down('xs')]: {
@@ -92,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     img: {
-        height: 200,
+        // prev height was 200 causing weird errors
         width:'auto',
         maxWidth: 400,
         display: "flex",
@@ -100,24 +99,21 @@ const useStyles = makeStyles((theme) => ({
 
     }
 }))
-const SearchResult = ({ article: { link4thumbnail, published_at, writer, title, name, altImgTitle, linkRef } }) => {
+const AuthorCard = ({ author: { FirstName, LastName, Description, ProfilePic, linkRef } }) => {
     const classes = useStyles();
 
     return (
-        <Link href={`/articles/${linkRef}`}>
+        <Link href={`/authors/${LastName}`}>
             <Card raised className={classes.root}>
                 <CardMedia
                     component="img"
-                    src={link4thumbnail}
-                    title={altImgTitle}
+                    src={`http://localhost:1337${ProfilePic.url}`}
+                    title={`Profile pic of ${FirstName}`}
                     className={classes.img}
                 />
                 <CardContent className={classes.content} style={{ fontFamily: 'Roboto' }}>
-                    <h1>{title}</h1>
-                    <h2>{writer.FirstName} {writer.LastName}</h2>
-                    <div>
-                        <h3>{name}</h3><p>Posted on {published_at}</p>
-                    </div>
+                    <h1>{FirstName} {LastName}</h1>
+                    <h2>{Description}</h2>
                 </CardContent>
             </Card>
         </Link>
@@ -126,4 +122,4 @@ const SearchResult = ({ article: { link4thumbnail, published_at, writer, title, 
 
 }
 
-export default SearchResult
+export default AuthorCard

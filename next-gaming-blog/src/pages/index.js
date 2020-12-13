@@ -45,11 +45,11 @@ export default function Home() {
             <h3 className={classes.root}>Latest Posts</h3>
           </Grid>
         </Hidden>
-        {dataResults.map(article => {
+        {dataResults.map((article, i) => {
           if (!article.headline) {
             return (
-              <Grid item xs={9} s={3} md={3}>
-                <BlogCard article={article} key={article.linkRef} />
+              <Grid key={i} item xs={9} s={3} md={3}>
+                <BlogCard article={article} />
               </Grid>
             )
           }
