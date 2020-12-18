@@ -107,7 +107,7 @@ const AuthorCard = ({ author: { FirstName, LastName, Description, ProfilePic, li
             <Card raised className={classes.root}>
                 <CardMedia
                     component="img"
-                    src={`http://localhost:1337${ProfilePic.url}`}
+                    src={`${ProfilePic.url}`}
                     title={`Profile pic of ${FirstName}`}
                     className={classes.img}
                 />
