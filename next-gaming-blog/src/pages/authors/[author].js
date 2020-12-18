@@ -5,6 +5,8 @@ import AuthorPage from '../../components/AuthorPage';
 import { Grid } from "@material-ui/core";
 import { useQuery } from '@apollo/client';
 import { FIND_AUTHOR_POSTS } from '../../queries'
+import Head from "next/head"
+
 
 export default function WriterPage() {
   const router = useRouter()
@@ -34,6 +36,9 @@ export default function WriterPage() {
 
   return (
     <Layout>
+      <Head>
+        <title> {data.writers[0].FirstName} {data.writers[0].LastName} </title>
+      </Head>
       <Grid container justify="center">
         <AuthorPage author={data.writers[0]} />
       </Grid>

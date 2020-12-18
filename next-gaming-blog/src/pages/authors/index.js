@@ -4,6 +4,7 @@ import AuthorCard from '../../components/AuthorCard'
 import { Grid } from "@material-ui/core";
 import { gql, useQuery } from '@apollo/client';
 import { ALL_AUTHORS } from '../../queries'
+import Head from "next/head"
 
 export default function AuthorsList() {
 
@@ -25,6 +26,9 @@ export default function AuthorsList() {
 
     return (
         <Layout>
+            <Head>
+                <title> Author Results </title>
+            </Head>
             <Grid container justify="center">
                 {allAuthors.map(author => {
                     

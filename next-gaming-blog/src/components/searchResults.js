@@ -4,6 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import { makeStyles } from '@material-ui/core/styles'
 import "fontsource-roboto"
 import Link from 'next/link'
+import { parseISO } from 'date-fns'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: 'row',
         maxHeight: 200,
-        width: "fit-content",
+        width: "auto",
         marginTop:10,
 
         [theme.breakpoints.down('xs')]: {
@@ -30,8 +31,13 @@ const useStyles = makeStyles((theme) => ({
         padding: 0,
         paddingLeft: 18,
         [theme.breakpoints.down('md')]: {
-            maxWidth: 400
+            maxWidth: 400,
+            paddingLeft: 0
         },
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: 0
+        },
+
         "& h1": {
             fontWeight: "medium",
             [theme.breakpoints.up('xs')]: {
@@ -116,7 +122,7 @@ const SearchResult = ({ article: { link4thumbnail, published_at, writer, title, 
                     <h1>{title}</h1>
                     <h2>{writer.FirstName} {writer.LastName}</h2>
                     <div>
-                        <h3>{name}</h3><p>Posted on {published_at}</p>
+                        <h3>{name}</h3><p>Posted on {parseISO(published_at).toString()}</p>
                     </div>
                 </CardContent>
             </Card>

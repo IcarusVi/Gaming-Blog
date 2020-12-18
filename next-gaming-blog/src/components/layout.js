@@ -7,7 +7,6 @@ export default function Layout({ children }) {
     return (
         <Container className="testSpace" disableGutters maxWidth="lg">
             <Head>
-                <title>Gaming Blog</title>
                 <link href='https://fonts.googleapis.com/css?family=Roboto' rel="stylesheet" />
             </Head>
             <NavBar />

@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { Grid } from "@material-ui/core";
 import { gql, useQuery } from '@apollo/client';
 import { FIND_TAG } from '../../queries'
+import Head from "next/head"
 
 export default function ArticlePage() {
     const router = useRouter()
@@ -29,6 +30,10 @@ export default function ArticlePage() {
 
     return (
         <Layout>
+            <Head>
+                <title>Gaming Articles</title>
+            </Head>
+
             <Grid container justify="center">
                 {allGamingPosts.map((post, i) => {
                     return (

@@ -2,11 +2,12 @@
 import BlogCard from '../components/BlogCard'
 import Layout from '../components/layout'
 import HeadLine from '../components/HeadLine'
+import Head from "next/head"
 import "fontsource-roboto"
 import { Grid, Hidden } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { gql, useQuery } from '@apollo/client';
-import {ALL_POSTS} from '../queries'
+import { ALL_POSTS } from '../queries'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,14 +19,16 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Home() {
+
+
   const classes = useStyles();
   const { loading, error, data } = useQuery(ALL_POSTS);
-  if(error){
+  if (error) {
     return <div>
       Error loading articles
     </div>
   }
-  else if(loading){
+  else if (loading) {
     return <div>
       Loading data...
     </div>
@@ -35,6 +38,11 @@ export default function Home() {
 
   return (
     <Layout>
+      
+      <Head>
+        <title>Gaming Blog</title>
+      </Head>
+
       {/*Grid of Blogs */}
       <Grid justify="center"
         container spacing={4}>

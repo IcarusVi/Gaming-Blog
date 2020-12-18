@@ -4,6 +4,8 @@ import { useRouter } from 'next/router'
 import { Grid } from "@material-ui/core";
 import { gql, useQuery } from '@apollo/client';
 import { FIND_ARTICLE } from '../../queries'
+import Head from "next/head"
+
 
 export default function ArticlePage() {
   const router = useRouter()
@@ -33,6 +35,9 @@ export default function ArticlePage() {
 
   return (
     <Layout>
+      <Head>
+        <title>{data.blogPosts[0].title}</title>
+      </Head>
       <Grid container justify="center">
         <Grid item xs={12} md={9}>
           <Article chosenArticle={data.blogPosts[0]} />
