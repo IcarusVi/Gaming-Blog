@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
             },
 
             [theme.breakpoints.up('md')]: {
-                fontSize: 22,
+                fontSize: 18,
 
             }
         },
