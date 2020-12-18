@@ -9,7 +9,7 @@
    return new ApolloClient({
      ssrMode: typeof window === "undefined", // set to true for SSR
      link: new HttpLink({
-       uri: `${API_URL}/graphql`,
+       uri: `${API_URL}`,
      }),
      cache: new InMemoryCache(),
    });
