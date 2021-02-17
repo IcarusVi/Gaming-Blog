@@ -20,5 +20,7 @@ For this project I wanted to learn how to work with a headless CMS, such as Stra
 - Material UI
 
 ## Initial Mockup
-[Figma Mockup](/figmaMockup.PNG)
 
+<div align="center">
+    <img src="/figmaMockup.PNG?raw=true"</img> 
+</div>
