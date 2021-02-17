@@ -1,5 +1,5 @@
 # Gaming-Blog
-NextJS Blog with Strapi CMS centered around gaming. 
+NextJS news site with Strapi CMS centered around gaming. 
 
 ## Summary
 For this project I wanted to learn how to work with a headless CMS, such as Strapi.
